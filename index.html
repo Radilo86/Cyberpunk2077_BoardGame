@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo Automa: Gangs of Night City v8.0</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cp-yellow: #FCEE0A;
+            --cp-cyan: #00F0FF;
+            --cp-red: #FF003C;
+            --cp-dark: #090909;
+            --cp-grey: #1c1c1c;
+            --cp-text: #e0e0e0;
+        }
+        body {
+            background-color: var(--cp-dark);
+            color: var(--cp-text);
+            font-family: 'Rajdhani', sans-serif;
+            margin: 0;
+            padding: 40px;
+            background-image: 
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            margin-top: 30px;
+        }
+        h1 {
+            color: var(--cp-yellow);
+            font-size: 3em;
+            text-shadow: 3px 3px var(--cp-red);
+            border-bottom: 5px solid var(--cp-cyan);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+        h2 {
+            background-color: var(--cp-yellow);
+            color: var(--cp-dark);
+            padding: 10px 20px;
+            display: inline-block;
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+        }
+        h3 {
+            color: var(--cp-cyan);
+            border-left: 4px solid var(--cp-red);
+            padding-left: 10px;
+            font-size: 1.5em;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .box {
+            background-color: var(--cp-grey);
+            border: 1px solid var(--cp-red);
+            border-left: 5px solid var(--cp-yellow);
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+        .box::after {
+            content: "SYS_OVERRIDE";
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background-color: var(--cp-red);
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7em;
+            padding: 2px 8px;
+        }
+        .box-blue {
+            border-color: var(--cp-cyan);
+            border-left-color: var(--cp-cyan);
+        }
+        .box-blue::after {
+            background-color: var(--cp-cyan);
+            color: var(--cp-dark);
+            content: "QUICK_REF";
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .highlight { color: var(--cp-yellow); font-weight: bold; }
+        .cyan { color: var(--cp-cyan); font-weight: bold; }
+        .red { color: var(--cp-red); font-weight: bold; }
+        .glossary dt {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--cp-cyan);
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 15px;
+        }
+        .glossary dd {
+            margin-left: 0;
+            padding-left: 15px;
+            border-left: 2px solid var(--cp-grey);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th {
+            background-color: var(--cp-red);
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            text-align: left;
+            padding: 10px;
+        }
+        td {
+            border-bottom: 1px solid var(--cp-grey);
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>PROTOCOLO AUTOMA [v8.0 - SOULKILLER]</h1>
+    <p>Manual interactivo para el Modo Solitario de <i>Cyberpunk 2077: Gangs of Night City</i>. Secuencia de turno, acciones, combate y expansión de Historias Multijugador optimizada al 100%.</p>
+
+    <h2>SECCIÓN 1: ESTRUCTURA DEL TURNO</h2>
+    <p><em>Regla de Oro Logística: Si cualquier mazo del juego (Distritos, Combate, Oportunidades, etc.) se agota, baraja sus descartes para formar uno nuevo inmediatamente.</em></p>
+
+    <div class="box box-blue">
+        <h3>1. TU TURNO</h3>
+        <p>Eliges realizar UNA de estas dos opciones:</p>
+        <ul>
+            <li>Hacer 1 o 2 acciones de <span class="highlight">ACTIVATE</span> (gastando discos en tu tablero). <br><em>¡Importante!: Al finalizar tu turno, repón las cartas vacías del mercado de Oportunidades y Edgerunners.</em></li>
+            <li>Hacer un <span class="highlight">RECLAIM</span> (recuperar discos y ganar recompensas).</li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <h3>2. TURNO DE JOHNNY SILVERHAND (Solo tras un turno de ACTIVATE)</h3>
+        <p>Se activa <strong>solo una vez</strong> al final de tu turno de ACTIVATE, independientemente de si gastaste 1 o 2 discos.</p>
+        <ol>
+            <li>Roba 1 carta de Distrito de su mazo y se mueve allí.</li>
+            <li><strong>Si tienes unidades allí:</strong> Inicia un Tiroteo contra ti y cualquier otra banda.</li>
+            <li><strong>Si está la Banda Rival pero tú no:</strong> La banda rival pierde todas sus unidades ahí. Johnny gana 4 SC y se retira la Oportunidad superior.</li>
+            <li><strong>Si Johnny está solo:</strong> Gana 3 SC y se retira la Oportunidad superior.</li>
+        </ol>
+    </div>
+
+    <div class="box">
+        <h3>3. TURNO DE LA BANDA RIVAL (Solo tras un RECLAIM tuyo)</h3>
+        <p>Roba 3 cartas de Distrito y aplica esto para <strong>cada una</strong> en orden estricto:</p>
+        <ol>
+            <li><strong>Reclutar:</strong> Coloca 1 unidad en ese distrito (en el POI si está vacío). Si a la IA no le quedan unidades base, gana 1 SC por cada distrito revelado sin su presencia.</li>
+            <li><strong>Efecto de Distrito:</strong>
+                <ul>
+                    <li><span class="cyan">Sin ti en el distrito:</span> La Banda gana 2 SC. Baraja los Edgerunners del mercado al fondo y no repongas hasta tu próximo ACTIVATE.</li>
+                    <li><span class="cyan">Contigo + Techie rival:</span> Pierdes 1 recurso tuyo o la Banda gana 3 SC. Luego elimina la Oportunidad superior.</li>
+                    <li><span class="cyan">Contigo + Netrunner rival:</span> Tu rastreador retrocede 1 paso en la Red y la Banda gana 2 SC.</li>
+                    <li><span class="cyan">Contigo + Solo rival:</span> La Banda inicia un Tiroteo contigo.</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <h2>SECCIÓN 2: RESOLUCIÓN DE TIROTEOS</h2>
+    <p>Solo hay tiroteo si AMBOS bandos tienen al menos 1 miniatura en el distrito. Tú juegas 1 carta de tu mano. La IA roba del mazo de Combate, usa el valor impreso más alto y descarta el resto. <em>En caso de empate en el valor, nadie pierde unidades. En un tiroteo a 3 bandos, todos revelan su valor y solo hay 1 único ganador absoluto.</em></p>
+    <ul>
+        <li><strong>Johnny Silverhand:</strong> Roba <span class="highlight">3 cartas</span>. Si es el ganador absoluto, TODAS las demás unidades en el distrito mueren. <strong>Johnny nunca muere</strong>.</li>
+        <li><strong>Banda Rival:</strong> Roba <span class="highlight">2 cartas</span>. Si la Banda gana, tú pierdes 1 unidad tuya y ellos ganan 3 SC. Si tú ganas, la banda sacrifica un Dron; si no hay Dron, eliges tú qué unidad humana suya muere <strong>(incluyendo a sus Edgerunners)</strong>.</li>
+    </ul>
+
+    <h2>SECCIÓN 3: TUS ACCIONES DETALLADAS</h2>
+
+    <h3>Acciones de ACTIVATE</h3>
+    <ul>
+        <li><span class="highlight">Activar Solos:</span> Mueve cualquier cantidad de Solos. Luego puedes iniciar 1 Tiroteo.</li>
+        <li><span class="highlight">Activar Techies:</span> Mueve Techies/Drones. Luego compra 1 Oportunidad (pagando Contrabando si controlas un POI Negocio) o contrata 1 Edgerunner (pagando Eddies si controlas un POI Fixer).</li>
+        <li><span class="highlight">Activar Netrunners:</span> Mueve Netrunners. Luego inicia una Incursión (Netrun).</li>
+        <li><span class="highlight">Construir Guarida:</span> Paga 2€ y pon Guarida. Gana el SC revelado en tu tablero.</li>
+        <li><span class="highlight">Mejorar Carta de Combate:</span> Paga 1€. Roba 2 cartas de mejora, quédate 1. Elimina 1 de tu mano permanentemente.</li>
+        <li><span class="highlight">Comodín (Wild):</span> Realiza cualquiera de las acciones anteriores.</li>
+    </ul>
+
+    <h3>Pasos de RECLAIM</h3>
+    <ol>
+        <li><span class="highlight">Recuperar:</span> Devuelve todos los discos a tu tablero.</li>
+        <li><span class="highlight">Recompensas:</span> Si tienes Presencia (gana 1 recompensa a elegir de ese distrito). Si tienes Dominancia (gana TODAS las recompensas de ese distrito).</li>
+        <li><span class="highlight">Reclutar:</span> Coloca 1 unidad por cada Guarida tuya. Si la unidad que pones es un Techie, añade además 1 Dron gratis en ese distrito.</li>
+    </ol>
+
+    <h2>SECCIÓN 4: EXPANSIÓN DE HISTORIAS MULTIJUGADOR</h2>
+    
+    <h3>Módulo 1: Motor de Decisiones (Sub-Prioridades)</h3>
+    <p>Cuando una Historia exija elegir una opción, la IA evalúa en este orden estricto:</p>
+    <ol>
+        <li><span class="cyan">Prioridad 1 (Victoria):</span> Opción que otorgue Puntos/Objetivos. Si hay empate entre opciones buenas: <strong>1º Dar Street Cred > 2º Eliminar Objetivo > 3º Construir Guarida.</strong></li>
+        <li><span class="cyan">Prioridad 2 (Desgaste):</span> Quitar recursos al jugador humano.</li>
+        <li><span class="cyan">Prioridad 3 (Caos):</span> Dado (1-3: Opción A | 4-6: Opción B).</li>
+    </ol>
+
+    <h3>Módulo 2: Resolución de Requisitos y Pagos de IA</h3>
+    <p>La IA NUNCA paga recursos ni utiliza acciones de tablero. En su lugar, <strong>supera automáticamente</strong> cualquier coste (Eurodólares/Contrabando) o exigencia de acción (ej. "Realizar un Netrun aquí") de las cartas de Historia si posee Dominancia en al menos 2 Distritos del mapa, o si tiene 3 unidades en el distrito activo. <em>La IA NO gasta esta Dominancia/Unidades, solo verifica.</em><br><br><strong>Si falla esta condición:</strong> la IA sufre la penalización de la historia y <strong>tú debes descartar 1 Contrabando o 1 Eurodólar</strong> de tu reserva como sabotaje económico.</p>
+
+    <h3>Módulo 3: Búsqueda y Destrucción</h3>
+    <p>Si hay un Objetivo de Historia a 1 distrito de distancia, la Banda Rival ignora su carta de robo. En su lugar, mueve <strong>TODAS sus unidades</strong> del distrito adyacente hacia el distrito del objetivo para invadirlo.</p>
+
+    <h3>Módulo 4: Johnny Silverhand vs Historias</h3>
+    <ul>
+        <li><span class="highlight">Modo Aislamiento:</span> Johnny ignora Jefes y VIPs. No lucha contra ellos.</li>
+        <li><span class="highlight">Modo Caos:</span> Johnny ataca objetivos. <em>Focus:</em> Si Johnny entra a un distrito donde estás tú y un Jefe, te ataca a ti PRIMERO, ignorando al Jefe ese turno. Si gana un tiroteo contra un Jefe cuando tú no estás, el Jefe no muere, es desplazado a un distrito adyacente al azar y la Banda Rival gana 1 SC.</li>
+    </ul>
+
+    <h3>Módulo 5: Dificultad Dinámica</h3>
+    <table>
+        <tr>
+            <th>Nivel</th>
+            <th>Handicap de Acto (IA)</th>
+            <th>Ventaja Inicial (Setup)</th>
+        </tr>
+        <tr>
+            <td>1. Fácil</td>
+            <td>+4 SC fijo</td>
+            <td>Jugador: +2€, +1 Contrabando</td>
+        </tr>
+        <tr>
+            <td>2. Normal</td>
+            <td><strong>Dinámico:</strong> +1 SC (Acto 1), +3 SC (Acto 2), +4 SC (Acto 3)</td>
+            <td>Estándar</td>
+        </tr>
+        <tr>
+            <td>3. Difícil</td>
+            <td>+1 SC fijo</td>
+            <td>IA: 1 Guarida gratis al inicio</td>
+        </tr>
+        <tr>
+            <td>4. Extremo</td>
+            <td>+0 (Avanza igual que tú)</td>
+            <td>IA: 2 Activaciones + 1 Reclaim gratis antes de empezar</td>
+        </tr>
+    </table>
+
+    <h2>SECCIÓN 5: GLOSARIO Y FIN DE PARTIDA</h2>
+    <dl class="glossary">
+        <dt>Regla de Oro Narrativa (Conflictos con la Historia)</dt>
+        <dd>El texto de las cartas de Historia <strong>siempre</strong> prevalece sobre las reglas básicas. Si una historia indica que la partida no puede acabar hasta cumplir X condición, el límite normal de 25 Street Cred se ignora temporalmente.</dd>
+
+        <dt>Final de la Partida y Empates</dt>
+        <dd>La partida termina si alguien alcanza 25 de Street Cred (salvo que la historia diga lo contrario). Si un evento otorga puntos a todos y tanto tú como la IA llegáis a 25 SC en el mismo instante, <strong>tú (el jugador humano) ganas siempre los empates por mérito narrativo.</strong></dd>
+
+        <dt>Epílogos</dt>
+        <dd><strong>¡IMPORTANTE! La IA nunca puede activar ni resolver un Epílogo narrativo.</strong> Si una carta dice "Cualquier jugador", se asume que solo tú (el humano) puedes resolver el puzzle final. La IA solo puede ganarte por puntos (Street Cred).</dd>
+
+        <dt>Dominancia</dt>
+        <dd>Tener una Guarida (Hideout) Y la mayor cantidad de unidades en un Distrito. (Si hay empate en unidades, nadie tiene Dominancia). Clave para el Reclaim y el Módulo 2.</dd>
+
+        <dt>Presencia</dt>
+        <dd>Tener al menos 1 miniatura (básica, Edgerunner o Dron) en un Distrito. Las Guaridas no dan Presencia por sí solas.</dd>
+
+        <dt>Punto de Interés (POI)</dt>
+        <dd>Casillas especiales (Fixer, Negocio, Fortaleza de Datos). Solo cabe 1 miniatura humana (los Drones no ocupan espacio). La IA siempre recluta aquí si están vacíos.</dd>
+
+        <dt>Secretos Corporativos</dt>
+        <dd>Archivos comodín. 1 Secreto = 1 Eurodólar o 1 Contrabando al pagar cualquier coste.</dd>
+    </dl>
+
+</body>
+</html>
